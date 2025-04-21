@@ -1,0 +1,36 @@
+
+
+{% extends 'base.html' %}
+{% block body %}
+
+	<title>User Profile</title>
+	<br>
+	<h5>{{user.username}} is logged in</h5>
+	<br>
+
+	<div class="container">
+  <div class="row align-items-start">
+    <div class="col">
+      UserName
+    </div>
+    <div class="col">
+      Name
+    </div>
+    <div class="col">
+      Change Password
+    </div>
+  </div>
+  <div class="row align-items-start">
+    <div class="col">
+      {{ user.username }}
+    </div>
+    <div class="col">
+      {{user.}}
+    </div>
+    <div class="col">
+      {{user.password}}
+    </div>
+  </div>
+  	</div>
+
+{% endblock%}

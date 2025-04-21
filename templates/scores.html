@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block body %}
+
+	<title>Thursday Night League Scores</title>
+	
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1><em>Score Cards</em></h1>
+                    {% for league in leagues %}
+                    <hr>
+                    <h4>{{ league.name }}</h4>
+                    {% if not league.events.all %}
+                    No events recorded.
+                    {% endif %}
+                    {% for event in league.events.all %}
+                    {{ event.name }}
+                    {% if not event.cards.all %}
+                    No score cards recorded.
+                    {% endif %}
+                    {% for card in event.cards.all %}
+                  <!--  <button class="btn-block btn-link" data-toggle="collapse" data-target="#card_{{ card.id }}">{{ card.render_date }} <small>({{ card.players }})</small></button>
+                    <div id="card_{{ card.id }}" class="collapse">
+                     {{ card.course }}/{{ card.layout }} (Par {{ card.layout.par }}) -->
+                    <small>
+                    <table class="table table-striped text-left">
+                      <tr><th>Position</th><th>Player</th><th>Scratch Score</th><th>+/-</th></tr>
+                      {% for contestant, stats in card.result.items %}
+                      <tr><td>{{ forloop.counter }}</td><td>{{ contestant.full_name }}</td><td>{{ stats.scratch_score }}</td><td>{{ stats.scratch_delta }}</td></tr>
+                      {% endfor %}
+                    </table>
+                    </small>
+                    </div>
+                    {% endfor %}
+                    {% endfor %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+
+{% endblock%}

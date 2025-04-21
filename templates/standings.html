@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block body %}
+
+	<title>Thursday Night League Standings</title>
+	
+
+	 <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>Standings</h2>
+
+          <table class="table table-dark">
+                         <tr>
+                            <th>Team</th>
+                            <th>Points</th>
+                        </tr>
+                    {% for team in teams %}
+                        <tr>
+                            <td>{{team.team}}</td>
+                            <td>{{team.points}}</td>
+
+                        </tr>
+                  
+                        {% endfor %}
+          </table> 
+
+        </div>
+      </div>
+    </div>
+
+{% endblock%}

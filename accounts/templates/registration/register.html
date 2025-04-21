@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<br><H3>Register</H3>
+	<form method="post">
+		{% csrf_token %}
+
+		{{form.as_p}}
+
+		<button>Register Here</button>
+
+		</form>
+
+{% endblock%}
